@@ -23,29 +23,31 @@ export default function App() {
   return (
     <div
       id="app"
-      className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4 gap-4"
+      className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       {list.map((item, index) => {
         return (
           <Card
             key={index}
-            className=" shadow"
+            className="shadow"
             styles={{
               header: { padding: '0 7px' },
               body: { padding: '10px  10px' },
             }}
             title={
-              <div className="flex justify-between">
-                <div className="">{item.fromPhone}</div>
-                <div className="">
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-gray-7">{item.fromPhone}</div>
+                <div className="text-sm text-gray-7">
                   {dayjs(item.receiveTime).format('YYYY-MM-DD HH:mm:ss')}
                 </div>
               </div>
             }
           >
-            <div>{item.content}</div>
+            <div className="text-gray-2">{item.content}</div>
 
-            <div className="text-right mt-6">{item.phone}</div>
+            <div className="mt-6 text-right text-gray-7">
+              {item.phone.replace(/SIM\d_/, '').replace(/(_|-)/, ' ')}
+            </div>
           </Card>
         )
       })}
