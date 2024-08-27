@@ -2,21 +2,19 @@ import { useEffect, useState } from 'react'
 import { Card } from 'antd'
 import dayjs from 'dayjs'
 import './app.scss'
+import { $fetch } from './fetch'
 
 export default function App() {
   let [list, setList] = useState([] as any[])
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API + `/sms/list?limit=${20}`, {
-      headers: {
-        ua: import.meta.env.VITE_UA,
+    $fetch({
+      url: import.meta.env.VITE_API + `/sms/list`,
+      query: {
+        limit: 20,
       },
-    }).then((res) => {
-      res.json().then((d) => {
-        if (d.code === 200) {
-          setList(d.data)
-        }
-      })
+    }).then((res: any) => {
+      setList(res.data as any[])
     })
   }, [])
 
