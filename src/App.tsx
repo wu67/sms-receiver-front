@@ -38,7 +38,7 @@ export default function App() {
               </div>
             }
           >
-            <div className="text-gray-2">{item.content}</div>
+            <div className="text-gray-2 break-words">{item.content}</div>
 
             <div className="mt-6 text-right text-gray-7">
               {item.phone.replace(/SIM\d_/, '').replace(/(_|-)/, ' ')}

@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            antd: ['antd'],
+            // antd: ['antd'],
           },
         },
       },
