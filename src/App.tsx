@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Card } from 'antd'
 import dayjs from 'dayjs'
 import './app.scss'
 import { get } from './fetch'
@@ -18,32 +17,26 @@ export default function App() {
   return (
     <div
       id="app"
-      className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      className="grid grid-cols-1 gap-4 p-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
     >
       {list.map((item, index) => {
         return (
-          <Card
-            key={index}
-            className="shadow"
-            styles={{
-              header: { padding: '0 7px' },
-              body: { padding: '10px  10px' },
-            }}
-            title={
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-7">{item.fromPhone}</div>
-                <div className="text-sm text-gray-7">
-                  {dayjs(item.receiveTime).format('YYYY-MM-DD HH:mm:ss')}
-                </div>
+          <div className="rounded border border-solid border-gray-e shadow">
+            <div className="flex items-center justify-between border border-solid border-transparent border-b-gray-e p-[7px]">
+              <div className="text-sm text-gray-7">{item.fromPhone}</div>
+              <div className="text-sm text-gray-7">
+                {dayjs(item.receiveTime).format('YYYY-MM-DD HH:mm:ss')}
               </div>
-            }
-          >
-            <div className="text-gray-2 break-words">{item.content}</div>
-
-            <div className="mt-6 text-right text-gray-7">
-              {item.phone.replace(/SIM\d_/, '').replace(/(_|-)/, ' ')}
             </div>
-          </Card>
+            <div className="p-[10px]">
+              <div className="break-all text-justify text-lg leading-[1.4] text-gray-2 md:text-base lg:text-sm xl:text-sm">
+                {item.content}
+              </div>
+              <div className="mt-6 text-right text-gray-7">
+                {item.phone.replace(/SIM\d_/, '').replace(/(_|-)/, ' ')}
+              </div>
+            </div>
+          </div>
         )
       })}
     </div>
