@@ -21,15 +21,15 @@ export default function App() {
     >
       {list.map((item, index) => {
         return (
-          <div className="rounded border border-solid border-gray-e shadow">
+          <div className="rounded border border-solid border-gray-e text-sm shadow">
             <div className="flex items-center justify-between border border-solid border-transparent border-b-gray-e p-[7px]">
-              <div className="text-sm text-gray-7">{item.fromPhone}</div>
-              <div className="text-sm text-gray-7">
+              <div className="text-gray-7">{item.fromPhone}</div>
+              <div className="text-gray-7">
                 {dayjs(item.receiveTime).format('YYYY-MM-DD HH:mm:ss')}
               </div>
             </div>
             <div className="p-[10px]">
-              <div className="break-all text-justify text-lg leading-[1.4] text-gray-2 md:text-base lg:text-sm xl:text-sm">
+              <div className="break-all text-justify leading-[1.4] text-gray-2">
                 {item.content}
               </div>
               <div className="mt-6 text-right text-gray-7">
